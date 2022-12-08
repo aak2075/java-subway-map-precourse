@@ -15,6 +15,8 @@ public class OutputView {
     private static final String SELECT_FUNCTION_MESSAGE = "## 원하는 기능을 선택하세요.";
     private static final String REGISTER_STATION_MESSAGE = "## 등록할 역 이름을 입력하세요.";
     private static final String REGISTER_STATION_COMPLETE_MESSAGE = "[INFO] 지하철 역이 등록되었습니다.";
+    private static final String DELETE_STATION_MESSAGE = "## 삭제할 역 이름을 입력하세요.";
+    private static final String DELETE_STATION_COMPLETE_MESSAGE = "[INFO] 지하철 역이 삭제되었습니다.";
 
     public static void selectMain() {
         System.out.println(MAIN_MESSAGE);
@@ -35,5 +37,13 @@ public class OutputView {
 
     public static void completeRegisterStation() {
         System.out.println(REGISTER_STATION_COMPLETE_MESSAGE);
+    }
+
+    public static void DeleteStation() {
+        System.out.println(DELETE_STATION_MESSAGE);
+    }
+
+    public static void completeDeleteStation() {
+        System.out.println(DELETE_STATION_COMPLETE_MESSAGE);
     }
 }

@@ -39,7 +39,10 @@ public enum StationManagementSelection {
     }
 
     private static void delete(InputView inputView) {
-
+        OutputView.DeleteStation();
+        String stationName = inputView.input();
+        StationRepository.deleteStation(stationName);
+        OutputView.completeDeleteStation();
     }
 
     private static void inquire(InputView inputView) {
