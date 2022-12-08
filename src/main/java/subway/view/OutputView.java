@@ -1,5 +1,9 @@
 package subway.view;
 
+import subway.domain.Station;
+
+import java.util.List;
+
 public class OutputView {
     private static final String MAIN_MESSAGE = "## 메인 화면\n" +
             "1. 역 관리\n" +
@@ -17,6 +21,7 @@ public class OutputView {
     private static final String REGISTER_STATION_COMPLETE_MESSAGE = "[INFO] 지하철 역이 등록되었습니다.";
     private static final String DELETE_STATION_MESSAGE = "## 삭제할 역 이름을 입력하세요.";
     private static final String DELETE_STATION_COMPLETE_MESSAGE = "[INFO] 지하철 역이 삭제되었습니다.";
+    private static final String INQUIRE_STATION_MESSAGE = "## 역 목록";
 
     public static void selectMain() {
         System.out.println(MAIN_MESSAGE);
@@ -39,11 +44,16 @@ public class OutputView {
         System.out.println(REGISTER_STATION_COMPLETE_MESSAGE);
     }
 
-    public static void DeleteStation() {
+    public static void deleteStation() {
         System.out.println(DELETE_STATION_MESSAGE);
     }
 
     public static void completeDeleteStation() {
         System.out.println(DELETE_STATION_COMPLETE_MESSAGE);
+    }
+
+    public static void inquireStation(List<Station> stations) {
+        System.out.println(INQUIRE_STATION_MESSAGE);
+        stations.forEach(station -> System.out.println("[INFO] " + station.getName()));
     }
 }
