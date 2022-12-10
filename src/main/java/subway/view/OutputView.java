@@ -22,6 +22,14 @@ public class OutputView {
     private static final String DELETE_STATION_MESSAGE = "## 삭제할 역 이름을 입력하세요.";
     private static final String DELETE_STATION_COMPLETE_MESSAGE = "[INFO] 지하철 역이 삭제되었습니다.";
     private static final String INQUIRE_STATION_MESSAGE = "## 역 목록";
+    private static final String SELECT_LINE_MESSAGE = "## 노선 관리 화면\n" +
+            "1. 노선 등록\n" +
+            "2. 노선 삭제\n" +
+            "3. 노선 조회\n" +
+            "B. 돌아가기";
+    private static final String REGISTER_LINE_NAME_MESSAGE = "## 등록할 노선 이름을 입력하세요.";
+    private static final String REGISTER_LINE_UP_MESSAGE = "## 등록할 노선의 상행 종점역 이름을 입력하세요.";
+    private static final String REGISTER_LINE_DOWN_MESSAGE = "## 등록할 노선의 하행 종점역 이름을 입력하세요.";
 
     public static void selectMain() {
         System.out.println(MAIN_MESSAGE);
@@ -55,5 +63,21 @@ public class OutputView {
     public static void inquireStation(List<Station> stations) {
         System.out.println(INQUIRE_STATION_MESSAGE);
         stations.forEach(station -> System.out.println("[INFO] " + station.getName()));
+    }
+
+    public static void selectLineManagement() {
+        System.out.println(SELECT_LINE_MESSAGE);
+    }
+
+    public static void registerLineName() {
+        System.out.println(REGISTER_LINE_NAME_MESSAGE);
+    }
+
+    public static void registerLineUp() {
+        System.out.println(REGISTER_LINE_UP_MESSAGE);
+    }
+
+    public static void registerLineDown() {
+        System.out.println(REGISTER_LINE_DOWN_MESSAGE);
     }
 }

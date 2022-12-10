@@ -19,7 +19,7 @@ public enum MainSelection {
     }
 
     private final String input;
-    public Consumer<InputView> execution;
+    public final Consumer<InputView> execution;
     private static final String INPUT_ERROR_MESSAGE = "[ERROR] 입력은 1~4와 Q만 가능합니다.";
 
     public static MainSelection getFunctionByInput(String input) {
@@ -31,12 +31,16 @@ public enum MainSelection {
 
     private static void manageStation(InputView inputView) {
         OutputView.selectStationManagement();
+        OutputView.selectFunction();
         StationManagementSelection select = StationManagementSelection.getFunctionByInput(inputView.input());
         select.execution.accept(inputView);
     }
 
     private static void manageLine(InputView inputView) {
-
+        OutputView.selectLineManagement();
+        OutputView.selectFunction();
+        LineManagementSelection select = LineManagementSelection.getFunctionByInput(inputView.input());
+        select.execution.accept(inputView);
     }
 
     private static void manageSection(InputView inputView) {
