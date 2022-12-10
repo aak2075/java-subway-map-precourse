@@ -1,5 +1,6 @@
 package subway.view;
 
+import subway.domain.Line;
 import subway.domain.Station;
 
 import java.util.List;
@@ -30,6 +31,8 @@ public class OutputView {
     private static final String REGISTER_LINE_NAME_MESSAGE = "## 등록할 노선 이름을 입력하세요.";
     private static final String REGISTER_LINE_UP_MESSAGE = "## 등록할 노선의 상행 종점역 이름을 입력하세요.";
     private static final String REGISTER_LINE_DOWN_MESSAGE = "## 등록할 노선의 하행 종점역 이름을 입력하세요.";
+    private static final String INQUIRE_LINE_MESSAGE = "## 노선 목록";
+    private static final String INFO_MESSAGE = "[INFO] ";
 
     public static void selectMain() {
         System.out.println(MAIN_MESSAGE);
@@ -62,7 +65,7 @@ public class OutputView {
 
     public static void inquireStation(List<Station> stations) {
         System.out.println(INQUIRE_STATION_MESSAGE);
-        stations.forEach(station -> System.out.println("[INFO] " + station.getName()));
+        stations.forEach(station -> System.out.println(INFO_MESSAGE + station.getName()));
     }
 
     public static void selectLineManagement() {
@@ -79,5 +82,10 @@ public class OutputView {
 
     public static void registerLineDown() {
         System.out.println(REGISTER_LINE_DOWN_MESSAGE);
+    }
+
+    public static void inquireLine(List<Line> lines) {
+        System.out.println(INQUIRE_LINE_MESSAGE);
+        lines.forEach(line -> System.out.println(INFO_MESSAGE + line.getName()));
     }
 }

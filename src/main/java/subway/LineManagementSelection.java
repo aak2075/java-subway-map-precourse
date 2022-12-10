@@ -47,6 +47,8 @@ public enum LineManagementSelection {
     }
 
     private static void inquire(InputView inputView) {
+        OutputView.inquireLine(LineRepository.lines());
+
     }
 
     private static void back(InputView inputView) {
