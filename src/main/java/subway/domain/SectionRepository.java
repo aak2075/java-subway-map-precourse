@@ -1,22 +1,26 @@
 package subway.domain;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class SectionRepository {
-    private static final List<Section> sections = new ArrayList<>();
+    private static final Map<Line, Section> sections = new HashMap<>();
 
-    public static List<Section> sections(List<Section> sections) {
-        return Collections.unmodifiableList(sections);
+    public static Map<Line, Section> sections(Map<Line, Section> sections) {
+        return Collections.unmodifiableMap(sections);
     }
 
-    public static void addSection(Section section) {
-        sections.add(section);
+    public static void addSection(Line line, Section section) {
+        sections.put(line, section);
     }
 
-    public static boolean deleteSection(String name) {
-        return sections.removeIf(section -> Objects.equals(section.getStation(name).getName(), name));
+    public static void addStation(Line line, Station station, int order) {
+        Section section = sections.get(line);
+        section.addStation(station, order);
+        sections.put(line, section);
+    }
+
+    public static boolean deleteStation(Line line, String name) {
+        Section section = sections.get(line);
+        return section.deleteStation(name);
     }
 }

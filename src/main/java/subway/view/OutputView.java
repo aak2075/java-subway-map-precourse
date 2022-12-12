@@ -35,6 +35,13 @@ public class OutputView {
     private static final String INFO_MESSAGE = "[INFO] ";
     private static final String DELETE_LINE_MESSAGE = "## 삭제할 노선 이름을 입력하세요.";
     private static final String COMPLETE_DELETE_MESSAGE = "지하철 노선이 삭제되었습니다.";
+    private static final String REGISTER_SECTION_INPUT_LINE_MESSAGE = "## 노선을 입력하세요.";
+    private static final String REGISTER_SECTION_INPUT_STATION_MESSAGE = "## 역이름을 입력하세요.";
+    private static final String REGISTER_SECTION_INPUT_ORDER_MESSAGE = "## 순서를 입력하세요.";
+    private static final String SELECT_SECTION_MESSAGE = "## 구간 관리 화면\n" +
+            "1. 구간 등록\n" +
+            "2. 구간 삭제\n" +
+            "B. 돌아가기";
 
     public static void selectMain() {
         System.out.println(MAIN_MESSAGE);
@@ -97,5 +104,21 @@ public class OutputView {
 
     public static void completeDeleteLine() {
         System.out.println(INFO_MESSAGE + COMPLETE_DELETE_MESSAGE);
+    }
+
+    public static void registerSectionLine() {
+        System.out.println(REGISTER_SECTION_INPUT_LINE_MESSAGE);
+    }
+
+    public static void registerSectionStation() {
+        System.out.println(REGISTER_SECTION_INPUT_STATION_MESSAGE);
+    }
+
+    public static void registerSectionOrder() {
+        System.out.println(REGISTER_SECTION_INPUT_ORDER_MESSAGE);
+    }
+
+    public static void selectSectionManagement() {
+        System.out.println(SELECT_SECTION_MESSAGE);
     }
 }

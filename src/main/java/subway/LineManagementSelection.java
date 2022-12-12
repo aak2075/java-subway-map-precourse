@@ -39,8 +39,8 @@ public enum LineManagementSelection {
         Station up = new Station(inputView.input());
         OutputView.registerLineDown();
         Station down = new Station(inputView.input());
-        Section section = new Section(new ArrayList<>(List.of(up, down)),line);
-        SectionRepository.addSection(section);
+        Section section = new Section(new ArrayList<>(List.of(up, down)));
+        SectionRepository.addSection(line, section);
     }
 
     private static void delete(InputView inputView) {

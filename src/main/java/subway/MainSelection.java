@@ -44,7 +44,10 @@ public enum MainSelection {
     }
 
     private static void manageSection(InputView inputView) {
-
+        OutputView.selectSectionManagement();
+        OutputView.selectFunction();
+        SectionManagementSelection select = SectionManagementSelection.getFunctionByInput(inputView.input());
+        select.execution.accept(inputView);
     }
 
     private static void printLines(InputView inputView) {
