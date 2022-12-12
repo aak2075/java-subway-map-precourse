@@ -5,7 +5,7 @@ import java.util.*;
 public class SectionRepository {
     private static final Map<Line, Section> sections = new HashMap<>();
 
-    public static Map<Line, Section> sections(Map<Line, Section> sections) {
+    public static Map<Line, Section> sections() {
         return Collections.unmodifiableMap(sections);
     }
 
