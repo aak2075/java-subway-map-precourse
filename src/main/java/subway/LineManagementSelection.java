@@ -44,6 +44,10 @@ public enum LineManagementSelection {
     }
 
     private static void delete(InputView inputView) {
+        OutputView.deleteLine();
+        String lineName = inputView.input();
+        LineRepository.deleteLineByName(lineName);
+        OutputView.completeDeleteLine();
     }
 
     private static void inquire(InputView inputView) {

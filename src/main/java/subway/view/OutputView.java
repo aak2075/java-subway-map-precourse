@@ -33,6 +33,8 @@ public class OutputView {
     private static final String REGISTER_LINE_DOWN_MESSAGE = "## 등록할 노선의 하행 종점역 이름을 입력하세요.";
     private static final String INQUIRE_LINE_MESSAGE = "## 노선 목록";
     private static final String INFO_MESSAGE = "[INFO] ";
+    private static final String DELETE_LINE_MESSAGE = "## 삭제할 노선 이름을 입력하세요.";
+    private static final String COMPLETE_DELETE_MESSAGE = "지하철 노선이 삭제되었습니다.";
 
     public static void selectMain() {
         System.out.println(MAIN_MESSAGE);
@@ -87,5 +89,13 @@ public class OutputView {
     public static void inquireLine(List<Line> lines) {
         System.out.println(INQUIRE_LINE_MESSAGE);
         lines.forEach(line -> System.out.println(INFO_MESSAGE + line.getName()));
+    }
+
+    public static void deleteLine() {
+        System.out.println(DELETE_LINE_MESSAGE);
+    }
+
+    public static void completeDeleteLine() {
+        System.out.println(INFO_MESSAGE + COMPLETE_DELETE_MESSAGE);
     }
 }
