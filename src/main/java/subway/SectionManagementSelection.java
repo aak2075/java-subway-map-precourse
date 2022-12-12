@@ -6,7 +6,6 @@ import subway.view.OutputView;
 
 import java.util.Arrays;
 import java.util.function.Consumer;
-import java.util.stream.Collectors;
 
 public enum SectionManagementSelection {
     REGISTER_SECTION("1", SectionManagementSelection::register),
