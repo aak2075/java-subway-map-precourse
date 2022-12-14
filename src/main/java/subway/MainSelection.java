@@ -1,5 +1,6 @@
 package subway;
 
+import subway.domain.SectionRepository;
 import subway.view.InputView;
 import subway.view.OutputView;
 
@@ -51,6 +52,7 @@ public enum MainSelection {
     }
 
     private static void printLines(InputView inputView) {
+        OutputView.subwayMap(SectionRepository.sections());
 
     }
 

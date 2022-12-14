@@ -1,9 +1,11 @@
 package subway.view;
 
 import subway.domain.Line;
+import subway.domain.Section;
 import subway.domain.Station;
 
 import java.util.List;
+import java.util.Map;
 
 public class OutputView {
     private static final String MAIN_MESSAGE = "## 메인 화면\n" +
@@ -42,6 +44,7 @@ public class OutputView {
             "1. 구간 등록\n" +
             "2. 구간 삭제\n" +
             "B. 돌아가기";
+    private static final String SUBWAY_MAP_MESSAGE = "## 지하철 노선도";
 
     public static void selectMain() {
         System.out.println(MAIN_MESSAGE);
@@ -120,5 +123,17 @@ public class OutputView {
 
     public static void selectSectionManagement() {
         System.out.println(SELECT_SECTION_MESSAGE);
+    }
+
+    public static void subwayMap(Map<Line, Section> sections) {
+        System.out.println(SUBWAY_MAP_MESSAGE);
+        for (Map.Entry<Line, Section> entry : sections.entrySet()) {
+            System.out.println(entry.getKey().getName());
+            System.out.println("---");
+            for (Station station : entry.getValue().stations()) {
+                System.out.println(INFO_MESSAGE + station.getName());
+            }
+        }
+
     }
 }

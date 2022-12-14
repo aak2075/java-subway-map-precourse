@@ -1,5 +1,6 @@
 package subway.domain;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Section {
@@ -9,6 +10,9 @@ public class Section {
         this.stations = stations;
     }
 
+    public List<Station> stations() {
+        return Collections.unmodifiableList(stations);
+    }
     public Station getStation(String name) {
         return stations.stream()
                 .filter(station -> station.getName().equals(name))
