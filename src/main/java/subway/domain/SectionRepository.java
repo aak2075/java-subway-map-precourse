@@ -19,8 +19,23 @@ public class SectionRepository {
         sections.put(line, section);
     }
 
-    public static boolean deleteStation(Line line, String name) {
+    public static void deleteStation(Line line, String name) {
         Section section = sections.get(line);
-        return section.deleteStation(name);
+        section.deleteStation(name);
+    }
+
+    public static void deleteStation(String name) {
+        Station station = StationRepository.findStationByName(name);
+        SectionRepository.sections().values().stream()
+                .filter(section -> section.containsStation(station))
+                .forEach(section -> deleteStation(findLineByStation(station), name));
+    }
+
+    private static Line findLineByStation(Station station) {
+        return SectionRepository.sections().entrySet().stream()
+                .filter(entry -> entry.getValue().stations().contains(station))
+                .map(Map.Entry::getKey)
+                .findAny()
+                .orElseThrow(IllegalArgumentException::new);
     }
 }

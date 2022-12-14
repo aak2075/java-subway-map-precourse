@@ -1,5 +1,6 @@
 package subway;
 
+import subway.domain.SectionRepository;
 import subway.domain.Station;
 import subway.domain.StationRepository;
 import subway.view.InputView;
@@ -41,6 +42,7 @@ public enum StationManagementSelection {
     private static void delete(InputView inputView) {
         OutputView.deleteStation();
         String stationName = inputView.input();
+        SectionRepository.deleteStation(stationName);
         StationRepository.deleteStation(stationName);
         OutputView.completeDeleteStation();
     }

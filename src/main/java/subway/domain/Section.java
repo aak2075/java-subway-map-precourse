@@ -13,12 +13,6 @@ public class Section {
     public List<Station> stations() {
         return Collections.unmodifiableList(stations);
     }
-    public Station getStation(String name) {
-        return stations.stream()
-                .filter(station -> station.getName().equals(name))
-                .findAny()
-                .orElseThrow(IllegalArgumentException::new);
-    }
 
     public void addStation(Station station, int order) {
         stations.add(order, station);
@@ -26,5 +20,10 @@ public class Section {
 
     public boolean deleteStation(String name) {
         return stations.removeIf(station -> station.getName().equals(name));
+    }
+
+    public boolean containsStation(Station station) {
+        return stations.stream()
+                .anyMatch(s -> s.equals(station));
     }
 }
