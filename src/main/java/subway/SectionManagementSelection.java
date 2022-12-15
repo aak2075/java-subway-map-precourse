@@ -38,7 +38,11 @@ public enum SectionManagementSelection {
     }
 
     public static void delete(InputView inputView) {
-
+        OutputView.deleteSectionLine();
+        Line line = LineRepository.findLineByName(inputView.input());
+        OutputView.deleteSectionStation();
+        SectionRepository.deleteStation(line, inputView.input());
+        OutputView.deleteSectionComplete();
     }
 
     public static void back(InputView inputView) {

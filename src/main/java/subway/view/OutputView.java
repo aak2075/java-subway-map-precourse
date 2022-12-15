@@ -45,6 +45,10 @@ public class OutputView {
             "2. 구간 삭제\n" +
             "B. 돌아가기";
     private static final String SUBWAY_MAP_MESSAGE = "## 지하철 노선도";
+    private static final String DELETE_SECTION_INPUT_LINE_MESSAGE = "## 삭제할 구간의 노선을 입력하세요.";
+    private static final String DELETE_SECTION_INPUT_STATION_MESSSAGE = "## 삭제할 구간의 역을 입력하세요.";
+    private static final String DELETE_SECTION_COMPLETE_MESSAGE = "구간이 삭제되었습니다.\n";
+
 
     public static void selectMain() {
         System.out.println(MAIN_MESSAGE);
@@ -135,5 +139,16 @@ public class OutputView {
             }
         }
 
+    }
+
+    public static void deleteSectionLine() {
+        System.out.println(DELETE_SECTION_INPUT_LINE_MESSAGE);
+    }
+
+    public static void deleteSectionStation() {
+        System.out.println(DELETE_SECTION_INPUT_STATION_MESSSAGE);
+    }
+    public static void deleteSectionComplete() {
+        System.out.println(DELETE_SECTION_COMPLETE_MESSAGE);
     }
 }

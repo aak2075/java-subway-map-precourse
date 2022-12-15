@@ -21,7 +21,7 @@ public class SubwayController {
         if (select == MainSelection.Quit) {
             return;
         }
-        select.execution.accept(inputView);
+        select.getExecution().accept(inputView);
         run();
     }
 }

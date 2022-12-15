@@ -20,7 +20,7 @@ public enum MainSelection {
     }
 
     private final String input;
-    public final Consumer<InputView> execution;
+    private final Consumer<InputView> execution;
     private static final String INPUT_ERROR_MESSAGE = "[ERROR] 입력은 1~4와 Q만 가능합니다.";
 
     public static MainSelection getFunctionByInput(String input) {
@@ -28,6 +28,10 @@ public enum MainSelection {
                 .filter(function -> function.input.equals(input))
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException(INPUT_ERROR_MESSAGE));
+    }
+
+    public Consumer<InputView> getExecution() {
+        return execution;
     }
 
     private static void manageStation(InputView inputView) {
